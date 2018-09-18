@@ -1,0 +1,11 @@
+framework module IMKit {
+  umbrella header "IMKit.h"
+
+  export *
+  module * { export * }
+}
+
+module IMKit.Swift {
+    header "IMKit-Swift.h"
+    requires objc
+}

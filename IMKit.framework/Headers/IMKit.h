@@ -2,7 +2,7 @@
 //  IMKit.h
 //  IMKit
 //
-//  Created by Howard Sun on 2018/9/11.
+//  Created by Howard Sun on 2018/9/22.
 //  Copyright © 2018年 Howard Sun. All rights reserved.
 //
 

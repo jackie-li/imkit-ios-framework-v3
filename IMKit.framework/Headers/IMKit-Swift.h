@@ -210,6 +210,8 @@ SWIFT_CLASS("_TtC5IMKit23IMDateSectionController")
 
 SWIFT_CLASS("_TtC5IMKit7IMImage")
 @interface IMImage : RealmSwiftObject
+@property (nonatomic, copy) NSData * _Nullable originImageData;
+@property (nonatomic, copy) NSData * _Nullable thumbnailImageData;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
@@ -282,11 +284,11 @@ SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 @end
 
 
+
+
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
-
-
 
 @class UICollectionView;
 
@@ -317,17 +319,17 @@ SWIFT_CLASS("_TtC5IMKit30IMInputAccessoryViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
-@interface IMInputAccessoryViewController (SWIFT_EXTENSION(IMKit)) <UITextViewDelegate>
-- (BOOL)textViewShouldBeginEditing:(UITextView * _Nonnull)textView SWIFT_WARN_UNUSED_RESULT;
-- (void)textViewDidBeginEditing:(UITextView * _Nonnull)textView;
-@end
-
 @class UIImagePickerController;
 
 @interface IMInputAccessoryViewController (SWIFT_EXTENSION(IMKit)) <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 - (void)imagePickerController:(UIImagePickerController * _Nonnull)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> * _Nonnull)info;
 - (void)imagePickerControllerDidCancel:(UIImagePickerController * _Nonnull)picker;
+@end
+
+
+@interface IMInputAccessoryViewController (SWIFT_EXTENSION(IMKit)) <UITextViewDelegate>
+- (BOOL)textViewShouldBeginEditing:(UITextView * _Nonnull)textView SWIFT_WARN_UNUSED_RESULT;
+- (void)textViewDidBeginEditing:(UITextView * _Nonnull)textView;
 @end
 
 @protocol NSObject;
@@ -387,6 +389,7 @@ SWIFT_CLASS("_TtC5IMKit9IMMessage")
 @property (nonatomic, readonly, strong) IMUser * _Nullable member;
 @property (nonatomic, readonly, copy) NSDate * _Nonnull createTime;
 @property (nonatomic, readonly, strong) IMImage * _Nullable image;
+@property (nonatomic, readonly, strong) IMMessage * _Nullable replyTarget;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;

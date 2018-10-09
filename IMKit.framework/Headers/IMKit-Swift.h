@@ -185,7 +185,71 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+@class UIImage;
+@class CIColor;
 @class NSCoder;
+
+SWIFT_CLASS("_TtC5IMKit5Color")
+@interface Color : UIColor
+- (nonnull instancetype)initWithWhite:(CGFloat)white alpha:(CGFloat)alpha OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithHue:(CGFloat)hue saturation:(CGFloat)saturation brightness:(CGFloat)brightness alpha:(CGFloat)alpha OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithDisplayP3Red:(CGFloat)displayP3Red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=10.0);
+- (nonnull instancetype)initWithCGColor:(CGColorRef _Nonnull)cgColor OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithPatternImage:(UIImage * _Nonnull)image OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithCIColor:(CIColor * _Nonnull)ciColor OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=5.0);
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_PROTOCOL_NAMED("ColorPalette")
+@protocol ColorPalette
+/// Material color code: 50
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull lighten5;)
++ (UIColor * _Nonnull)lighten5 SWIFT_WARN_UNUSED_RESULT;
+/// Material color code: 100
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull lighten4;)
++ (UIColor * _Nonnull)lighten4 SWIFT_WARN_UNUSED_RESULT;
+/// Material color code: 200
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull lighten3;)
++ (UIColor * _Nonnull)lighten3 SWIFT_WARN_UNUSED_RESULT;
+/// Material color code: 300
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull lighten2;)
++ (UIColor * _Nonnull)lighten2 SWIFT_WARN_UNUSED_RESULT;
+/// Material color code: 400
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull lighten1;)
++ (UIColor * _Nonnull)lighten1 SWIFT_WARN_UNUSED_RESULT;
+/// Material color code: 500
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull base;)
++ (UIColor * _Nonnull)base SWIFT_WARN_UNUSED_RESULT;
+/// Material color code: 600
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull darken1;)
++ (UIColor * _Nonnull)darken1 SWIFT_WARN_UNUSED_RESULT;
+/// Material color code: 700
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull darken2;)
++ (UIColor * _Nonnull)darken2 SWIFT_WARN_UNUSED_RESULT;
+/// Material color code: 800
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull darken3;)
++ (UIColor * _Nonnull)darken3 SWIFT_WARN_UNUSED_RESULT;
+/// Material color code: 900
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull darken4;)
++ (UIColor * _Nonnull)darken4 SWIFT_WARN_UNUSED_RESULT;
+@optional
+/// Material color code: A100
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull accent1;)
++ (UIColor * _Nonnull)accent1 SWIFT_WARN_UNUSED_RESULT;
+/// Material color code: A200
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull accent2;)
++ (UIColor * _Nonnull)accent2 SWIFT_WARN_UNUSED_RESULT;
+/// Material color code: A400
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull accent3;)
++ (UIColor * _Nonnull)accent3 SWIFT_WARN_UNUSED_RESULT;
+/// Material color code: A700
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull accent4;)
++ (UIColor * _Nonnull)accent4 SWIFT_WARN_UNUSED_RESULT;
+@end
+
 
 SWIFT_CLASS("_TtC5IMKit24IMDateCollectionViewCell")
 @interface IMDateCollectionViewCell : UICollectionViewCell
@@ -319,17 +383,17 @@ SWIFT_CLASS("_TtC5IMKit30IMInputAccessoryViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+@interface IMInputAccessoryViewController (SWIFT_EXTENSION(IMKit)) <UITextViewDelegate>
+- (BOOL)textViewShouldBeginEditing:(UITextView * _Nonnull)textView SWIFT_WARN_UNUSED_RESULT;
+- (void)textViewDidBeginEditing:(UITextView * _Nonnull)textView;
+@end
+
 @class UIImagePickerController;
 
 @interface IMInputAccessoryViewController (SWIFT_EXTENSION(IMKit)) <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 - (void)imagePickerController:(UIImagePickerController * _Nonnull)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> * _Nonnull)info;
 - (void)imagePickerControllerDidCancel:(UIImagePickerController * _Nonnull)picker;
-@end
-
-
-@interface IMInputAccessoryViewController (SWIFT_EXTENSION(IMKit)) <UITextViewDelegate>
-- (BOOL)textViewShouldBeginEditing:(UITextView * _Nonnull)textView SWIFT_WARN_UNUSED_RESULT;
-- (void)textViewDidBeginEditing:(UITextView * _Nonnull)textView;
 @end
 
 @protocol NSObject;
@@ -379,6 +443,7 @@ SWIFT_CLASS("_TtC5IMKit16IMMemberProperty")
 @end
 
 @class IMUser;
+@class IMResponseObject;
 
 SWIFT_CLASS("_TtC5IMKit9IMMessage")
 @interface IMMessage : RealmSwiftObject <IGListDiffable>
@@ -389,7 +454,7 @@ SWIFT_CLASS("_TtC5IMKit9IMMessage")
 @property (nonatomic, readonly, strong) IMUser * _Nullable member;
 @property (nonatomic, readonly, copy) NSDate * _Nonnull createTime;
 @property (nonatomic, readonly, strong) IMImage * _Nullable image;
-@property (nonatomic, readonly, strong) IMMessage * _Nullable replyTarget;
+@property (nonatomic, readonly, strong) IMResponseObject * _Nullable responseObject;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
@@ -413,17 +478,14 @@ SWIFT_CLASS("_TtC5IMKit26UIObservableViewController")
 
 SWIFT_CLASS("_TtC5IMKit24IMMessagesViewController")
 @interface IMMessagesViewController : UIObservableViewController
-@property (nonatomic, readonly, strong) UIInputViewController * _Nullable inputAccessoryViewController;
 @property (nonatomic, readonly, strong) UIInputViewController * _Nullable inputViewController;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
-- (void)viewDidLayoutSubviews;
+- (void)viewSafeAreaInsetsDidChange;
 @property (nonatomic, readonly) BOOL canBecomeFirstResponder;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
-
-
 
 @class IGListAdapter;
 
@@ -434,10 +496,39 @@ SWIFT_CLASS("_TtC5IMKit24IMMessagesViewController")
 @end
 
 
+
+
 @interface IMMessagesViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDelegate>
 - (void)scrollViewWillEndDragging:(UIScrollView * _Nonnull)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(CGPoint * _Nonnull)targetContentOffset;
 - (void)scrollViewDidEndDragging:(UIScrollView * _Nonnull)scrollView willDecelerate:(BOOL)decelerate;
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit16IMResponseObject")
+@interface IMResponseObject : RealmSwiftObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull id;
+@property (nonatomic, readonly, strong) IMUser * _Nullable sender;
+@property (nonatomic, readonly, copy) NSString * _Nonnull text;
+@property (nonatomic, readonly, copy) NSString * _Nullable stickerID;
++ (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit34IMResponseObjectInputAccessoryView")
+@interface IMResponseObjectInputAccessoryView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit20IMResponseObjectView")
+@interface IMResponseObjectView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -613,8 +704,38 @@ SWIFT_CLASS("_TtC5IMKit54IMTextMessageWithLinkPreviewCollectionViewCellIncoming"
 @end
 
 
+SWIFT_CLASS("_TtC5IMKit71IMTextMessageWithLinkPreviewAndResponseObjectCollectionViewCellIncoming")
+@interface IMTextMessageWithLinkPreviewAndResponseObjectCollectionViewCellIncoming : IMTextMessageWithLinkPreviewCollectionViewCellIncoming
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC5IMKit54IMTextMessageWithLinkPreviewCollectionViewCellOutgoing")
 @interface IMTextMessageWithLinkPreviewCollectionViewCellOutgoing : IMTextMessageCollectionViewCellOutgoing
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit71IMTextMessageWithLinkPreviewAndResponseObjectCollectionViewCellOutgoing")
+@interface IMTextMessageWithLinkPreviewAndResponseObjectCollectionViewCellOutgoing : IMTextMessageWithLinkPreviewCollectionViewCellOutgoing
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+
+SWIFT_CLASS("_TtC5IMKit57IMTextMessageWithResponseObjectCollectionViewCellIncoming")
+@interface IMTextMessageWithResponseObjectCollectionViewCellIncoming : IMTextMessageCollectionViewCellIncoming
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit57IMTextMessageWithResponseObjectCollectionViewCellOutgoing")
+@interface IMTextMessageWithResponseObjectCollectionViewCellOutgoing : IMTextMessageCollectionViewCellOutgoing
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end

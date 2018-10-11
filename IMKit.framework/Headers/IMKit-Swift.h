@@ -478,10 +478,11 @@ SWIFT_CLASS("_TtC5IMKit26UIObservableViewController")
 
 SWIFT_CLASS("_TtC5IMKit24IMMessagesViewController")
 @interface IMMessagesViewController : UIObservableViewController
+@property (nonatomic, readonly, strong) UIInputViewController * _Nullable inputAccessoryViewController;
 @property (nonatomic, readonly, strong) UIInputViewController * _Nullable inputViewController;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
-- (void)viewSafeAreaInsetsDidChange;
+- (void)viewDidLayoutSubviews;
 @property (nonatomic, readonly) BOOL canBecomeFirstResponder;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;

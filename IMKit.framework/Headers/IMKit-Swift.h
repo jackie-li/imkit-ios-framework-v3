@@ -377,6 +377,7 @@ SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 SWIFT_CLASS("_TtC5IMKit30IMInputAccessoryViewController")
 @interface IMInputAccessoryViewController : UIInputViewController
 - (void)viewDidLoad;
+- (void)viewSafeAreaInsetsDidChange;
 - (void)viewDidLayoutSubviews;
 - (void)textViewDidChange:(UITextView * _Nonnull)textView;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;

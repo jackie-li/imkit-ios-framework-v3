@@ -250,6 +250,54 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _N
 + (UIColor * _Nonnull)accent4 SWIFT_WARN_UNUSED_RESULT;
 @end
 
+@class NSBundle;
+
+SWIFT_CLASS("_TtC5IMKit26IMAudioInputViewController")
+@interface IMAudioInputViewController : UIInputViewController
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewDidLayoutSubviews;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit32IMAudioMessageCollectionViewCell")
+@interface IMAudioMessageCollectionViewCell : UICollectionViewCell
+- (void)prepareForReuse;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit40IMAudioMessageCollectionViewCellIncoming")
+@interface IMAudioMessageCollectionViewCellIncoming : IMAudioMessageCollectionViewCell
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)prepareForReuse;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit40IMAudioMessageCollectionViewCellOutgoing")
+@interface IMAudioMessageCollectionViewCellOutgoing : IMAudioMessageCollectionViewCell
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)prepareForReuse;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit31IMAudioMessageSectionController")
+@interface IMAudioMessageSectionController : IGListSectionController
+- (NSInteger)numberOfItems SWIFT_WARN_UNUSED_RESULT;
+- (CGSize)sizeForItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+- (UICollectionViewCell * _Nonnull)cellForItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+- (void)didUpdateToObject:(id _Nonnull)object;
+- (void)didSelectItemAtIndex:(NSInteger)index;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
 
 SWIFT_CLASS("_TtC5IMKit24IMDateCollectionViewCell")
 @interface IMDateCollectionViewCell : UICollectionViewCell
@@ -337,7 +385,6 @@ SWIFT_CLASS("_TtC5IMKit31IMImageViewerCollectionViewCell")
 - (void)scrollViewWillEndDragging:(UIScrollView * _Nonnull)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(CGPoint * _Nonnull)targetContentOffset;
 @end
 
-@class NSBundle;
 
 SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 @interface IMImageViewerViewController : UIViewController
@@ -372,14 +419,12 @@ SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class UITextView;
 
 SWIFT_CLASS("_TtC5IMKit30IMInputAccessoryViewController")
 @interface IMInputAccessoryViewController : UIInputViewController
 - (void)viewDidLoad;
 - (void)viewSafeAreaInsetsDidChange;
 - (void)viewDidLayoutSubviews;
-- (void)textViewDidChange:(UITextView * _Nonnull)textView;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -391,11 +436,13 @@ SWIFT_CLASS("_TtC5IMKit30IMInputAccessoryViewController")
 - (void)imagePickerControllerDidCancel:(UIImagePickerController * _Nonnull)picker;
 @end
 
+@class UITextView;
 
 @interface IMInputAccessoryViewController (SWIFT_EXTENSION(IMKit)) <UITextViewDelegate>
 - (BOOL)textViewShouldBeginEditing:(UITextView * _Nonnull)textView SWIFT_WARN_UNUSED_RESULT;
 - (void)textViewDidBeginEditing:(UITextView * _Nonnull)textView;
 - (void)textViewDidEndEditing:(UITextView * _Nonnull)textView;
+- (void)textViewDidChange:(UITextView * _Nonnull)textView;
 @end
 
 @protocol NSObject;

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IMKit'
-  s.version          = '0.34.0'
+  s.version          = '0.35.0'
   s.summary          = 'IMKit Framework'
 
 # This description is used to generate tags and improve search results.
@@ -46,7 +46,7 @@ Pod::Spec.new do |s|
   s.dependency 'IGListKit'
   s.dependency 'PromiseKit'
   s.dependency 'Socket.IO-Client-Swift'
-  s.dependency 'Kingfisher', '~> 4.9.0'
+  s.dependency 'Kingfisher'
   s.dependency 'Alamofire'
   s.dependency 'RealmSwift'
   s.dependency 'SwiftLinkPreview'

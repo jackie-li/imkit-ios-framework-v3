@@ -262,12 +262,21 @@ SWIFT_CLASS("_TtC5IMKit26IMAudioInputViewController")
 @end
 
 
+
+
+
+
 SWIFT_CLASS("_TtC5IMKit32IMAudioMessageCollectionViewCell")
 @interface IMAudioMessageCollectionViewCell : UICollectionViewCell
 - (void)prepareForReuse;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)removeFromSuperview;
 @end
+
+
+
+
 
 
 SWIFT_CLASS("_TtC5IMKit40IMAudioMessageCollectionViewCellIncoming")
@@ -319,6 +328,53 @@ SWIFT_CLASS("_TtC5IMKit23IMDateSectionController")
 @class RLMSchema;
 @class RLMRealm;
 @class RLMObjectSchema;
+
+SWIFT_CLASS("_TtC5IMKit6IMFile")
+@interface IMFile : RealmSwiftObject
+@property (nonatomic, copy) NSData * _Nullable data;
++ (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit31IMFileMessageCollectionViewCell")
+@interface IMFileMessageCollectionViewCell : UICollectionViewCell
+- (void)prepareForReuse;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit39IMFileMessageCollectionViewCellIncoming")
+@interface IMFileMessageCollectionViewCellIncoming : IMFileMessageCollectionViewCell
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)prepareForReuse;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit39IMFileMessageCollectionViewCellOutgoing")
+@interface IMFileMessageCollectionViewCellOutgoing : IMFileMessageCollectionViewCell
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)prepareForReuse;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit30IMFileMessageSectionController")
+@interface IMFileMessageSectionController : IGListSectionController
+- (NSInteger)numberOfItems SWIFT_WARN_UNUSED_RESULT;
+- (CGSize)sizeForItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+- (UICollectionViewCell * _Nonnull)cellForItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+- (void)didUpdateToObject:(id _Nonnull)object;
+- (void)didSelectItemAtIndex:(NSInteger)index;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
 
 SWIFT_CLASS("_TtC5IMKit7IMImage")
 @interface IMImage : RealmSwiftObject
@@ -395,11 +451,11 @@ SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 @end
 
 
-
-
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
+
+
 
 @class UICollectionView;
 
@@ -427,6 +483,13 @@ SWIFT_CLASS("_TtC5IMKit30IMInputAccessoryViewController")
 - (void)viewDidLayoutSubviews;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UIDocumentPickerViewController;
+
+@interface IMInputAccessoryViewController (SWIFT_EXTENSION(IMKit)) <UIDocumentPickerDelegate>
+- (void)documentPicker:(UIDocumentPickerViewController * _Nonnull)controller didPickDocumentsAtURLs:(NSArray<NSURL *> * _Nonnull)urls;
+- (void)documentPicker:(UIDocumentPickerViewController * _Nonnull)controller didPickDocumentAtURL:(NSURL * _Nonnull)url;
 @end
 
 @class UIImagePickerController;
@@ -503,7 +566,9 @@ SWIFT_CLASS("_TtC5IMKit9IMMessage")
 @property (nonatomic, readonly, strong) IMUser * _Nullable member;
 @property (nonatomic, readonly, copy) NSDate * _Nonnull createTime;
 @property (nonatomic, readonly, strong) IMImage * _Nullable image;
+@property (nonatomic, readonly, strong) IMFile * _Nullable file;
 @property (nonatomic, readonly, strong) IMResponseObject * _Nullable responseObject;
+@property (nonatomic, readonly) NSInteger duration;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;

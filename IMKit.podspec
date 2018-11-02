@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = 'IMKit.framework'
   s.ios.vendored_frameworks = 'IMKit.framework'
   s.resources     = 'IMKit.framework/*.xib', 'IMKit.framework/*.nib', 'IMKit.framework/Assets.car', 'Assets.xcassets'
-  s.ios.resource_bundle = { 'IMKit' =>  ['IMKit.framework/*.xib', 'IMKit.framework/*.nib', 'IMKit.framework/Assets.car'] }
+  s.ios.resource_bundle = { 'IMKit' =>  ['IMKit.framework/*.xib', 'IMKit.framework/*.nib', 'IMKit.framework/Assets.car', 'Assets.xcassets'] }
   s.requires_arc  = true
 
   # s.resource_bundles = {

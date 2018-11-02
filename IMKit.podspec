@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IMKit'
-  s.version          = '0.43.0'
+  s.version          = '0.45.0'
   s.summary          = 'IMKit Framework'
 
 # This description is used to generate tags and improve search results.
@@ -32,8 +32,8 @@ Pod::Spec.new do |s|
   # s.resources = 'IMKit/Assets/Assets.xcassets'
   s.vendored_frameworks = 'IMKit.framework'
   s.ios.vendored_frameworks = 'IMKit.framework'
-  s.resources     = 'IMKit.framework/*.xib', 'IMKit.framework/*.nib', 'IMKit.framework/Assets.car', 'Assets.xcassets'
-  s.ios.resource_bundle = { 'IMKit' =>  ['IMKit.framework/*.xib', 'IMKit.framework/*.nib', 'IMKit.framework/Assets.car', 'Assets.xcassets'] }
+  # s.resources     = 'IMKit.framework/*.xib', 'IMKit.framework/*.nib', 'IMKit.framework/Assets.car', 'Assets.xcassets'
+  # s.ios.resource_bundle = { 'IMKit' =>  ['IMKit.framework/*.xib', 'IMKit.framework/*.nib', 'IMKit.framework/Assets.car', 'Assets.xcassets'] }
   s.requires_arc  = true
 
   # s.resource_bundles = {

@@ -333,7 +333,9 @@ SWIFT_CLASS("_TtC5IMKit6IMFile")
 @interface IMFile : RealmSwiftObject
 @property (nonatomic, readonly, copy) NSData * _Nullable data;
 @property (nonatomic, copy) NSString * _Nullable name;
+@property (nonatomic, copy) NSString * _Nullable fileExtension;
 @property (nonatomic, copy) NSString * _Nullable mimeType;
+@property (nonatomic) NSInteger bytes;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
@@ -453,11 +455,11 @@ SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 @end
 
 
-
-
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
+
+
 
 @class UICollectionView;
 
@@ -602,7 +604,6 @@ SWIFT_CLASS("_TtC5IMKit9IMMessage")
 @property (nonatomic, readonly, copy) NSString * _Nonnull roomID;
 @property (nonatomic, readonly, copy) NSString * _Nonnull text;
 @property (nonatomic, readonly, strong) IMUser * _Nullable sender;
-@property (nonatomic, readonly, strong) IMUser * _Nullable member;
 @property (nonatomic, readonly, copy) NSDate * _Nonnull createTime;
 @property (nonatomic, readonly, strong) IMImage * _Nullable image;
 @property (nonatomic, readonly, strong) IMFile * _Nullable file;

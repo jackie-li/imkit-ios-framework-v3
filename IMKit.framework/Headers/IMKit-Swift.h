@@ -331,7 +331,11 @@ SWIFT_CLASS("_TtC5IMKit23IMDateSectionController")
 
 SWIFT_CLASS("_TtC5IMKit6IMFile")
 @interface IMFile : RealmSwiftObject
-@property (nonatomic, copy) NSData * _Nullable data;
+@property (nonatomic, readonly, copy) NSData * _Nullable data;
+@property (nonatomic, copy) NSString * _Nullable name;
+@property (nonatomic, copy) NSString * _Nullable fileExtension;
+@property (nonatomic, copy) NSString * _Nullable mimeType;
+@property (nonatomic) NSInteger bytes;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
@@ -600,7 +604,6 @@ SWIFT_CLASS("_TtC5IMKit9IMMessage")
 @property (nonatomic, readonly, copy) NSString * _Nonnull roomID;
 @property (nonatomic, readonly, copy) NSString * _Nonnull text;
 @property (nonatomic, readonly, strong) IMUser * _Nullable sender;
-@property (nonatomic, readonly, strong) IMUser * _Nullable member;
 @property (nonatomic, readonly, copy) NSDate * _Nonnull createTime;
 @property (nonatomic, readonly, strong) IMImage * _Nullable image;
 @property (nonatomic, readonly, strong) IMFile * _Nullable file;
@@ -635,6 +638,7 @@ SWIFT_CLASS("_TtC5IMKit24IMMessagesViewController")
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewDidLayoutSubviews;
 @property (nonatomic, readonly) BOOL canBecomeFirstResponder;
+- (void)infoButtonTapped;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -721,6 +725,30 @@ SWIFT_CLASS("_TtC5IMKit23IMRoomSectionController")
 - (void)didUpdateToObject:(id _Nonnull)object;
 - (void)didSelectItemAtIndex:(NSInteger)index;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit20IMRoomViewController")
+@interface IMRoomViewController : UIObservableViewController
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewDidDisappear:(BOOL)animated;
+- (void)viewDidLayoutSubviews;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface IMRoomViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDelegate>
+@end
+
+
+
+
+@interface IMRoomViewController (SWIFT_EXTENSION(IMKit)) <IGListAdapterDataSource>
+- (NSArray<id <IGListDiffable>> * _Nonnull)objectsForListAdapter:(IGListAdapter * _Nonnull)listAdapter SWIFT_WARN_UNUSED_RESULT;
+- (IGListSectionController * _Nonnull)listAdapter:(IGListAdapter * _Nonnull)listAdapter sectionControllerForObject:(id _Nonnull)object SWIFT_WARN_UNUSED_RESULT;
+- (UIView * _Nullable)emptyViewForListAdapter:(IGListAdapter * _Nonnull)listAdapter SWIFT_WARN_UNUSED_RESULT;
 @end
 
 

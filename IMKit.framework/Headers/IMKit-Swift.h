@@ -643,6 +643,8 @@ SWIFT_CLASS("_TtC5IMKit24IMMessagesViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+
 @class IGListAdapter;
 
 @interface IMMessagesViewController (SWIFT_EXTENSION(IMKit)) <IGListAdapterDataSource>
@@ -650,8 +652,6 @@ SWIFT_CLASS("_TtC5IMKit24IMMessagesViewController")
 - (IGListSectionController * _Nonnull)listAdapter:(IGListAdapter * _Nonnull)listAdapter sectionControllerForObject:(id _Nonnull)object SWIFT_WARN_UNUSED_RESULT;
 - (UIView * _Nullable)emptyViewForListAdapter:(IGListAdapter * _Nonnull)listAdapter SWIFT_WARN_UNUSED_RESULT;
 @end
-
-
 
 
 @interface IMMessagesViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDelegate>

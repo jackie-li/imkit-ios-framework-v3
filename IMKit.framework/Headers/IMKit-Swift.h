@@ -336,6 +336,7 @@ SWIFT_CLASS("_TtC5IMKit6IMFile")
 @property (nonatomic, copy) NSString * _Nullable fileExtension;
 @property (nonatomic, copy) NSString * _Nullable mimeType;
 @property (nonatomic) NSInteger bytes;
+@property (nonatomic) NSInteger duration;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
@@ -547,6 +548,18 @@ SWIFT_CLASS("_TtC5IMKit30IMLinkPreviewSectionController")
 @end
 
 
+SWIFT_CLASS("_TtC5IMKit10IMLocation")
+@interface IMLocation : RealmSwiftObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull address;
+@property (nonatomic, readonly) double latitude;
+@property (nonatomic, readonly) double longitude;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
++ (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 SWIFT_CLASS("_TtC5IMKit30IMMapMessageCollectionViewCell")
 @interface IMMapMessageCollectionViewCell : UICollectionViewCell
 - (void)prepareForReuse;
@@ -596,6 +609,7 @@ SWIFT_CLASS("_TtC5IMKit16IMMemberProperty")
 @end
 
 @class IMUser;
+@class IMSystemEvent;
 @class IMResponseObject;
 
 SWIFT_CLASS("_TtC5IMKit9IMMessage")
@@ -603,12 +617,14 @@ SWIFT_CLASS("_TtC5IMKit9IMMessage")
 @property (nonatomic, readonly, copy) NSString * _Nonnull id;
 @property (nonatomic, readonly, copy) NSString * _Nonnull roomID;
 @property (nonatomic, readonly, copy) NSString * _Nonnull text;
-@property (nonatomic, readonly, strong) IMUser * _Nullable sender;
+@property (nonatomic, readonly, copy) NSString * _Nonnull stickerID;
 @property (nonatomic, readonly, copy) NSDate * _Nonnull createTime;
+@property (nonatomic, readonly, strong) IMUser * _Nullable sender;
 @property (nonatomic, readonly, strong) IMImage * _Nullable image;
 @property (nonatomic, readonly, strong) IMFile * _Nullable file;
+@property (nonatomic, readonly, strong) IMSystemEvent * _Nullable systemEvent;
+@property (nonatomic, readonly, strong) IMLocation * _Nullable location;
 @property (nonatomic, readonly, strong) IMResponseObject * _Nullable responseObject;
-@property (nonatomic, readonly) NSInteger duration;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
@@ -643,8 +659,6 @@ SWIFT_CLASS("_TtC5IMKit24IMMessagesViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
-
 @class IGListAdapter;
 
 @interface IMMessagesViewController (SWIFT_EXTENSION(IMKit)) <IGListAdapterDataSource>
@@ -652,6 +666,8 @@ SWIFT_CLASS("_TtC5IMKit24IMMessagesViewController")
 - (IGListSectionController * _Nonnull)listAdapter:(IGListAdapter * _Nonnull)listAdapter sectionControllerForObject:(id _Nonnull)object SWIFT_WARN_UNUSED_RESULT;
 - (UIView * _Nullable)emptyViewForListAdapter:(IGListAdapter * _Nonnull)listAdapter SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 @interface IMMessagesViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDelegate>
@@ -811,6 +827,15 @@ SWIFT_CLASS("_TtC5IMKit26IMStickerSectionController")
 - (void)didUpdateToObject:(id _Nonnull)object;
 - (void)didSelectItemAtIndex:(NSInteger)index;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit13IMSystemEvent")
+@interface IMSystemEvent : RealmSwiftObject
++ (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
 @end
 
 

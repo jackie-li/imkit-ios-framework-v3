@@ -308,6 +308,13 @@ SWIFT_CLASS("_TtC5IMKit31IMAudioMessageSectionController")
 
 
 
+SWIFT_CLASS("_TtC5IMKit12IMAvatarView")
+@interface IMAvatarView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC5IMKit24IMDateCollectionViewCell")
 @interface IMDateCollectionViewCell : UICollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -438,7 +445,6 @@ SWIFT_CLASS("_TtC5IMKit31IMImageViewerCollectionViewCell")
 @end
 
 @class UIScrollView;
-@class UIView;
 
 @interface IMImageViewerCollectionViewCell (SWIFT_EXTENSION(IMKit)) <UIScrollViewDelegate>
 - (UIView * _Nullable)viewForZoomingInScrollView:(UIScrollView * _Nonnull)scrollView SWIFT_WARN_UNUSED_RESULT;
@@ -456,11 +462,11 @@ SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 @end
 
 
+
+
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
-
-
 
 @class UICollectionView;
 
@@ -659,6 +665,8 @@ SWIFT_CLASS("_TtC5IMKit24IMMessagesViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+
 @class IGListAdapter;
 
 @interface IMMessagesViewController (SWIFT_EXTENSION(IMKit)) <IGListAdapterDataSource>
@@ -666,8 +674,6 @@ SWIFT_CLASS("_TtC5IMKit24IMMessagesViewController")
 - (IGListSectionController * _Nonnull)listAdapter:(IGListAdapter * _Nonnull)listAdapter sectionControllerForObject:(id _Nonnull)object SWIFT_WARN_UNUSED_RESULT;
 - (UIView * _Nullable)emptyViewForListAdapter:(IGListAdapter * _Nonnull)listAdapter SWIFT_WARN_UNUSED_RESULT;
 @end
-
-
 
 
 @interface IMMessagesViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDelegate>

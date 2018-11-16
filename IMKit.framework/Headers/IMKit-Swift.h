@@ -462,11 +462,11 @@ SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 @end
 
 
-
-
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
+
+
 
 @class UICollectionView;
 
@@ -823,6 +823,19 @@ SWIFT_CLASS("_TtC5IMKit28IMStickerInputViewController")
 - (IGListSectionController * _Nonnull)listAdapter:(IGListAdapter * _Nonnull)listAdapter sectionControllerForObject:(id _Nonnull)object SWIFT_WARN_UNUSED_RESULT;
 - (UIView * _Nullable)emptyViewForListAdapter:(IGListAdapter * _Nonnull)listAdapter SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
+SWIFT_CLASS("_TtC5IMKit33IMStickerMessageSectionController")
+@interface IMStickerMessageSectionController : IGListSectionController
+- (NSInteger)numberOfItems SWIFT_WARN_UNUSED_RESULT;
+- (CGSize)sizeForItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+- (UICollectionViewCell * _Nonnull)cellForItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+- (void)didUpdateToObject:(id _Nonnull)object;
+- (void)didSelectItemAtIndex:(NSInteger)index;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 
 
 SWIFT_CLASS("_TtC5IMKit26IMStickerSectionController")

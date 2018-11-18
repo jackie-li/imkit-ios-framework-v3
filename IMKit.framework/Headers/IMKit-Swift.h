@@ -266,11 +266,19 @@ SWIFT_CLASS("_TtC5IMKit26IMAudioInputViewController")
 
 
 
-SWIFT_CLASS("_TtC5IMKit32IMAudioMessageCollectionViewCell")
-@interface IMAudioMessageCollectionViewCell : UICollectionViewCell
+SWIFT_CLASS("_TtC5IMKit27IMMessageCollectionViewCell")
+@interface IMMessageCollectionViewCell : UICollectionViewCell
 - (void)prepareForReuse;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit32IMAudioMessageCollectionViewCell")
+@interface IMAudioMessageCollectionViewCell : IMMessageCollectionViewCell
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
+- (void)prepareForReuse;
 - (void)removeFromSuperview;
 @end
 
@@ -283,7 +291,6 @@ SWIFT_CLASS("_TtC5IMKit40IMAudioMessageCollectionViewCellIncoming")
 @interface IMAudioMessageCollectionViewCellIncoming : IMAudioMessageCollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (void)prepareForReuse;
 @end
 
 
@@ -291,7 +298,6 @@ SWIFT_CLASS("_TtC5IMKit40IMAudioMessageCollectionViewCellOutgoing")
 @interface IMAudioMessageCollectionViewCellOutgoing : IMAudioMessageCollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (void)prepareForReuse;
 @end
 
 
@@ -352,8 +358,7 @@ SWIFT_CLASS("_TtC5IMKit6IMFile")
 
 
 SWIFT_CLASS("_TtC5IMKit31IMFileMessageCollectionViewCell")
-@interface IMFileMessageCollectionViewCell : UICollectionViewCell
-- (void)prepareForReuse;
+@interface IMFileMessageCollectionViewCell : IMMessageCollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -363,7 +368,6 @@ SWIFT_CLASS("_TtC5IMKit39IMFileMessageCollectionViewCellIncoming")
 @interface IMFileMessageCollectionViewCellIncoming : IMFileMessageCollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (void)prepareForReuse;
 @end
 
 
@@ -371,7 +375,6 @@ SWIFT_CLASS("_TtC5IMKit39IMFileMessageCollectionViewCellOutgoing")
 @interface IMFileMessageCollectionViewCellOutgoing : IMFileMessageCollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (void)prepareForReuse;
 @end
 
 
@@ -400,10 +403,10 @@ SWIFT_CLASS("_TtC5IMKit7IMImage")
 
 
 SWIFT_CLASS("_TtC5IMKit32IMImageMessageCollectionViewCell")
-@interface IMImageMessageCollectionViewCell : UICollectionViewCell
-- (void)prepareForReuse;
+@interface IMImageMessageCollectionViewCell : IMMessageCollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)prepareForReuse;
 @end
 
 
@@ -411,7 +414,6 @@ SWIFT_CLASS("_TtC5IMKit40IMImageMessageCollectionViewCellIncoming")
 @interface IMImageMessageCollectionViewCellIncoming : IMImageMessageCollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (void)prepareForReuse;
 @end
 
 
@@ -419,7 +421,6 @@ SWIFT_CLASS("_TtC5IMKit40IMImageMessageCollectionViewCellOutgoing")
 @interface IMImageMessageCollectionViewCellOutgoing : IMImageMessageCollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (void)prepareForReuse;
 @end
 
 
@@ -456,6 +457,7 @@ SWIFT_CLASS("_TtC5IMKit31IMImageViewerCollectionViewCell")
 SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 @interface IMImageViewerViewController : UIViewController
 - (void)viewDidLoad;
+- (void)viewSafeAreaInsetsDidChange;
 @property (nonatomic, readonly) UIStatusBarStyle preferredStatusBarStyle;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -567,7 +569,7 @@ SWIFT_CLASS("_TtC5IMKit10IMLocation")
 
 
 SWIFT_CLASS("_TtC5IMKit30IMMapMessageCollectionViewCell")
-@interface IMMapMessageCollectionViewCell : UICollectionViewCell
+@interface IMMapMessageCollectionViewCell : IMMessageCollectionViewCell
 - (void)prepareForReuse;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -578,7 +580,6 @@ SWIFT_CLASS("_TtC5IMKit38IMMapMessageCollectionViewCellIncoming")
 @interface IMMapMessageCollectionViewCellIncoming : IMMapMessageCollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (void)prepareForReuse;
 @end
 
 
@@ -586,7 +587,6 @@ SWIFT_CLASS("_TtC5IMKit38IMMapMessageCollectionViewCellOutgoing")
 @interface IMMapMessageCollectionViewCellOutgoing : IMMapMessageCollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (void)prepareForReuse;
 @end
 
 
@@ -640,6 +640,7 @@ SWIFT_CLASS("_TtC5IMKit9IMMessage")
 - (id <NSObject> _Nonnull)diffIdentifier SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)isEqualToDiffableObject:(id <IGListDiffable> _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 SWIFT_CLASS("_TtC5IMKit26UIObservableViewController")
@@ -878,7 +879,7 @@ SWIFT_CLASS("_TtC5IMKit32IMSystemMessageSectionController")
 
 
 SWIFT_CLASS("_TtC5IMKit31IMTextMessageCollectionViewCell")
-@interface IMTextMessageCollectionViewCell : UICollectionViewCell
+@interface IMTextMessageCollectionViewCell : IMMessageCollectionViewCell
 - (void)prepareForReuse;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -889,7 +890,6 @@ SWIFT_CLASS("_TtC5IMKit39IMTextMessageCollectionViewCellIncoming")
 @interface IMTextMessageCollectionViewCellIncoming : IMTextMessageCollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (void)prepareForReuse;
 @end
 
 
@@ -897,7 +897,6 @@ SWIFT_CLASS("_TtC5IMKit39IMTextMessageCollectionViewCellOutgoing")
 @interface IMTextMessageCollectionViewCellOutgoing : IMTextMessageCollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (void)prepareForReuse;
 @end
 
 

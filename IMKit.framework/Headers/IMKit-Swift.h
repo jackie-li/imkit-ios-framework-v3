@@ -464,11 +464,11 @@ SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 @end
 
 
+
+
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
-
-
 
 @class UICollectionView;
 
@@ -497,6 +497,8 @@ SWIFT_CLASS("_TtC5IMKit30IMInputAccessoryViewController")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
+
+
 
 @class UIDocumentPickerViewController;
 

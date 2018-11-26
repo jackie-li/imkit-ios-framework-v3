@@ -969,6 +969,24 @@ SWIFT_CLASS("_TtC5IMKit57IMTextMessageWithResponseObjectCollectionViewCellOutgoi
 @end
 
 
+SWIFT_CLASS("_TtC5IMKit26IMTypingCollectionViewCell")
+@interface IMTypingCollectionViewCell : UICollectionViewCell
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit25IMTypingSectionController")
+@interface IMTypingSectionController : IGListSectionController
+- (NSInteger)numberOfItems SWIFT_WARN_UNUSED_RESULT;
+- (CGSize)sizeForItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+- (UICollectionViewCell * _Nonnull)cellForItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+- (void)didUpdateToObject:(id _Nonnull)object;
+- (void)didSelectItemAtIndex:(NSInteger)index;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC5IMKit6IMUser")
 @interface IMUser : RealmSwiftObject <IGListDiffable>
 @property (nonatomic, readonly, copy) NSString * _Nonnull id;

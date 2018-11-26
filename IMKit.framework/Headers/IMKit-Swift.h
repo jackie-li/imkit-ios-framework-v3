@@ -464,11 +464,11 @@ SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 @end
 
 
-
-
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
+
+
 
 @class UICollectionView;
 
@@ -498,14 +498,14 @@ SWIFT_CLASS("_TtC5IMKit30IMInputAccessoryViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
-
 @class UIDocumentPickerViewController;
 
 @interface IMInputAccessoryViewController (SWIFT_EXTENSION(IMKit)) <UIDocumentPickerDelegate>
 - (void)documentPicker:(UIDocumentPickerViewController * _Nonnull)controller didPickDocumentsAtURLs:(NSArray<NSURL *> * _Nonnull)urls;
 - (void)documentPicker:(UIDocumentPickerViewController * _Nonnull)controller didPickDocumentAtURL:(NSURL * _Nonnull)url;
 @end
+
+
 
 @class UIImagePickerController;
 
@@ -966,6 +966,24 @@ SWIFT_CLASS("_TtC5IMKit57IMTextMessageWithResponseObjectCollectionViewCellOutgoi
 @interface IMTextMessageWithResponseObjectCollectionViewCellOutgoing : IMTextMessageCollectionViewCellOutgoing
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit26IMTypingCollectionViewCell")
+@interface IMTypingCollectionViewCell : UICollectionViewCell
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit25IMTypingSectionController")
+@interface IMTypingSectionController : IGListSectionController
+- (NSInteger)numberOfItems SWIFT_WARN_UNUSED_RESULT;
+- (CGSize)sizeForItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+- (UICollectionViewCell * _Nonnull)cellForItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+- (void)didUpdateToObject:(id _Nonnull)object;
+- (void)didSelectItemAtIndex:(NSInteger)index;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 

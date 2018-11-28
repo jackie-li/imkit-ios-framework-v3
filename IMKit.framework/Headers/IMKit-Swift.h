@@ -464,11 +464,11 @@ SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 @end
 
 
-
-
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
+
+
 
 @class UICollectionView;
 
@@ -498,14 +498,14 @@ SWIFT_CLASS("_TtC5IMKit30IMInputAccessoryViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+
 @class UIDocumentPickerViewController;
 
 @interface IMInputAccessoryViewController (SWIFT_EXTENSION(IMKit)) <UIDocumentPickerDelegate>
 - (void)documentPicker:(UIDocumentPickerViewController * _Nonnull)controller didPickDocumentsAtURLs:(NSArray<NSURL *> * _Nonnull)urls;
 - (void)documentPicker:(UIDocumentPickerViewController * _Nonnull)controller didPickDocumentAtURL:(NSURL * _Nonnull)url;
 @end
-
-
 
 @class UIImagePickerController;
 
@@ -885,9 +885,9 @@ SWIFT_CLASS("_TtC5IMKit32IMSystemMessageSectionController")
 
 SWIFT_CLASS("_TtC5IMKit31IMTextMessageCollectionViewCell")
 @interface IMTextMessageCollectionViewCell : IMMessageCollectionViewCell
-- (void)prepareForReuse;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)prepareForReuse;
 @end
 
 

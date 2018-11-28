@@ -885,9 +885,9 @@ SWIFT_CLASS("_TtC5IMKit32IMSystemMessageSectionController")
 
 SWIFT_CLASS("_TtC5IMKit31IMTextMessageCollectionViewCell")
 @interface IMTextMessageCollectionViewCell : IMMessageCollectionViewCell
-- (void)prepareForReuse;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)prepareForReuse;
 @end
 
 

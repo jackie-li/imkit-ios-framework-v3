@@ -464,11 +464,11 @@ SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 @end
 
 
+
+
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
-
-
 
 @class UICollectionView;
 
@@ -498,14 +498,14 @@ SWIFT_CLASS("_TtC5IMKit30IMInputAccessoryViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
-
 @class UIDocumentPickerViewController;
 
 @interface IMInputAccessoryViewController (SWIFT_EXTENSION(IMKit)) <UIDocumentPickerDelegate>
 - (void)documentPicker:(UIDocumentPickerViewController * _Nonnull)controller didPickDocumentsAtURLs:(NSArray<NSURL *> * _Nonnull)urls;
 - (void)documentPicker:(UIDocumentPickerViewController * _Nonnull)controller didPickDocumentAtURL:(NSURL * _Nonnull)url;
 @end
+
+
 
 @class UIImagePickerController;
 
@@ -1001,6 +1001,41 @@ SWIFT_CLASS("_TtC5IMKit6IMUser")
 - (id <NSObject> _Nonnull)diffIdentifier SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)isEqualToDiffableObject:(id <IGListDiffable> _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
+SWIFT_CLASS("_TtC5IMKit32IMVideoMessageCollectionViewCell")
+@interface IMVideoMessageCollectionViewCell : IMMessageCollectionViewCell
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)prepareForReuse;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit40IMVideoMessageCollectionViewCellIncoming")
+@interface IMVideoMessageCollectionViewCellIncoming : IMVideoMessageCollectionViewCell
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit40IMVideoMessageCollectionViewCellOutgoing")
+@interface IMVideoMessageCollectionViewCellOutgoing : IMVideoMessageCollectionViewCell
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit31IMVideoMessageSectionController")
+@interface IMVideoMessageSectionController : IGListSectionController
+- (NSInteger)numberOfItems SWIFT_WARN_UNUSED_RESULT;
+- (CGSize)sizeForItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+- (UICollectionViewCell * _Nonnull)cellForItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+- (void)didUpdateToObject:(id _Nonnull)object;
+- (void)didSelectItemAtIndex:(NSInteger)index;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 
 
 

@@ -293,11 +293,14 @@ SWIFT_CLASS("_TtC5IMKit40IMAudioMessageCollectionViewCellIncoming")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UITapGestureRecognizer;
 
 SWIFT_CLASS("_TtC5IMKit40IMAudioMessageCollectionViewCellOutgoing")
 @interface IMAudioMessageCollectionViewCellOutgoing : IMAudioMessageCollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)prepareForReuse;
+- (void)handleCancelButtonTappedWithRecognizer:(UITapGestureRecognizer * _Nonnull)recognizer;
 @end
 
 
@@ -316,6 +319,13 @@ SWIFT_CLASS("_TtC5IMKit31IMAudioMessageSectionController")
 
 SWIFT_CLASS("_TtC5IMKit12IMAvatarView")
 @interface IMAvatarView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit24IMCircularProgressButton")
+@interface IMCircularProgressButton : UIButton
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -407,6 +417,7 @@ SWIFT_CLASS("_TtC5IMKit32IMImageMessageCollectionViewCell")
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (void)prepareForReuse;
+- (void)handleProgressButtonTappedWithRecognizer:(UITapGestureRecognizer * _Nonnull)recognizer;
 @end
 
 
@@ -464,11 +475,11 @@ SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 @end
 
 
-
-
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
+
+
 
 @class UICollectionView;
 
@@ -686,6 +697,14 @@ SWIFT_CLASS("_TtC5IMKit24IMMessagesViewController")
 
 @interface IMMessagesViewController (SWIFT_EXTENSION(IMKit))
 - (void)messageDidSelect:(IMMessage * _Nonnull)message;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit13IMProgessView")
+@interface IMProgessView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)layoutSubviews;
 @end
 
 

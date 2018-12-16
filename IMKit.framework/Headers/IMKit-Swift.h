@@ -371,6 +371,7 @@ SWIFT_CLASS("_TtC5IMKit31IMFileMessageCollectionViewCell")
 @interface IMFileMessageCollectionViewCell : IMMessageCollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)prepareForReuse;
 @end
 
 
@@ -743,6 +744,7 @@ SWIFT_CLASS("_TtC5IMKit6IMRoom")
 @property (nonatomic, readonly, copy) NSString * _Nonnull lastMessage;
 @property (nonatomic, readonly, copy) NSDate * _Nonnull createTime;
 @property (nonatomic, readonly, copy) NSDate * _Nonnull updateTime;
+@property (nonatomic, readonly, copy) NSDate * _Nullable pinTime;
 @property (nonatomic, readonly) NSInteger numberOfUnreadMessages;
 @property (nonatomic, readonly) BOOL isMuted;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -758,9 +760,9 @@ SWIFT_CLASS("_TtC5IMKit6IMRoom")
 
 SWIFT_CLASS("_TtC5IMKit24IMRoomCollectionViewCell")
 @interface IMRoomCollectionViewCell : UICollectionViewCell
-- (void)prepareForReuse;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)prepareForReuse;
 @end
 
 

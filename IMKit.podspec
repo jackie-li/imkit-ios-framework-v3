@@ -47,7 +47,7 @@ Pod::Spec.new do |s|
   s.dependency 'PromiseKit'
   s.dependency 'Socket.IO-Client-Swift'
   s.dependency 'Kingfisher'
-  s.dependency 'Alamofire'
+  s.dependency 'Alamofire', '~> 4.7.3'
   s.dependency 'RealmSwift'
   s.dependency 'SwiftLinkPreview'
   s.dependency 'ActiveLabel'

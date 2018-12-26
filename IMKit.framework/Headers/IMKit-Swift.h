@@ -753,7 +753,6 @@ SWIFT_CLASS("_TtC5IMKit6IMRoom")
 - (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
 + (NSString * _Nullable)primaryKey SWIFT_WARN_UNUSED_RESULT;
-+ (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<NSString *> * _Nonnull)indexedProperties SWIFT_WARN_UNUSED_RESULT;
 - (id <NSObject> _Nonnull)diffIdentifier SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)isEqualToDiffableObject:(id <IGListDiffable> _Nullable)object SWIFT_WARN_UNUSED_RESULT;

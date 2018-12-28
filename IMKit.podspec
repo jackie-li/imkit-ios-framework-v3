@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IMKit'
-  s.version          = '0.94.0'
+  s.version          = '0.101.0'
   s.summary          = 'IMKit Framework'
 
 # This description is used to generate tags and improve search results.
@@ -43,17 +43,19 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
 
-  s.dependency 'IGListKit'
-  s.dependency 'PromiseKit'
-  s.dependency 'Socket.IO-Client-Swift'
+  s.dependency 'IGListKit', '~> 3.4.0'
+  s.dependency 'PromiseKit', '~> 6.7.0'
+  s.dependency 'Socket.IO-Client-Swift', '~> 13.3.1'
   s.dependency 'Kingfisher', '~> 4.9.0'
-  s.dependency 'Alamofire'
-  s.dependency 'RealmSwift'
-  s.dependency 'SwiftLinkPreview'
-  s.dependency 'ActiveLabel'
-  s.dependency 'SnapKit'
-  s.dependency 'Hero'
-  s.dependency 'SwiftyJSON'
-  s.dependency 'CryptoSwift'
-  s.dependency 'Moya'
+  s.dependency 'Alamofire', '~> 4.8.0'
+  s.dependency 'RealmSwift', '~> 3.13.0'
+  s.dependency 'SwiftLinkPreview', '~> 2.3.1'
+  s.dependency 'ActiveLabel', '~> 0.9.0'
+  s.dependency 'SnapKit', '~> 4.2.0'
+  s.dependency 'Hero', '~> 1.4.0'
+  s.dependency 'SwiftyJSON', '~> 4.2.0'
+  s.dependency 'CryptoSwift', '~> 0.13.1'
+  s.dependency 'Moya', '~> 12.0.1'
+  s.dependency 'Starscream', '3.0.5'
+
 end

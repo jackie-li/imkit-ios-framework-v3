@@ -645,6 +645,7 @@ SWIFT_CLASS("_TtC5IMKit9IMMessage")
 @property (nonatomic, readonly, strong) IMSystemEvent * _Nullable systemEvent;
 @property (nonatomic, readonly, strong) IMLocation * _Nullable location;
 @property (nonatomic, readonly, strong) IMResponseObject * _Nullable responseObject;
+@property (nonatomic, readonly, copy) NSString * _Nonnull messageType;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;

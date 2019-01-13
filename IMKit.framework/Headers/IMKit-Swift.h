@@ -639,6 +639,7 @@ SWIFT_CLASS("_TtC5IMKit9IMMessage")
 @property (nonatomic, readonly, copy) NSString * _Nonnull text;
 @property (nonatomic, readonly, copy) NSString * _Nonnull stickerID;
 @property (nonatomic, readonly, copy) NSDate * _Nonnull createTime;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull updateTime;
 @property (nonatomic, readonly, strong) IMUser * _Nullable sender;
 @property (nonatomic, readonly, strong) IMImage * _Nullable image;
 @property (nonatomic, readonly, strong) IMFile * _Nullable file;
@@ -959,6 +960,7 @@ SWIFT_CLASS("_TtC5IMKit71IMTextMessageWithLinkPreviewAndResponseObjectCollection
 @interface IMTextMessageWithLinkPreviewAndResponseObjectCollectionViewCellIncoming : IMTextMessageWithLinkPreviewCollectionViewCellIncoming
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)prepareForReuse;
 @end
 
 
@@ -973,6 +975,7 @@ SWIFT_CLASS("_TtC5IMKit71IMTextMessageWithLinkPreviewAndResponseObjectCollection
 @interface IMTextMessageWithLinkPreviewAndResponseObjectCollectionViewCellOutgoing : IMTextMessageWithLinkPreviewCollectionViewCellOutgoing
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)prepareForReuse;
 @end
 
 
@@ -982,6 +985,7 @@ SWIFT_CLASS("_TtC5IMKit57IMTextMessageWithResponseObjectCollectionViewCellIncomi
 @interface IMTextMessageWithResponseObjectCollectionViewCellIncoming : IMTextMessageCollectionViewCellIncoming
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)prepareForReuse;
 @end
 
 
@@ -989,6 +993,7 @@ SWIFT_CLASS("_TtC5IMKit57IMTextMessageWithResponseObjectCollectionViewCellOutgoi
 @interface IMTextMessageWithResponseObjectCollectionViewCellOutgoing : IMTextMessageCollectionViewCellOutgoing
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)prepareForReuse;
 @end
 
 

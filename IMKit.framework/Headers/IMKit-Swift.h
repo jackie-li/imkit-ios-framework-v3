@@ -476,11 +476,11 @@ SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 @end
 
 
+
+
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
-
-
 
 @class UICollectionView;
 

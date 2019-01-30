@@ -34,8 +34,6 @@ pod 'IGListKit', :git => 'https://github.com/imkit/IGListKit.git'
 pod 'SwiftLinkPreview', :git => 'https://github.com/imkit/SwiftLinkPreview.git'
 ```
 
-## Installation
-
 ## Quick Start - Demo App
 ```bash
 $ git clone https://github.com/imkit/imkit-ios-sdk-v3.git

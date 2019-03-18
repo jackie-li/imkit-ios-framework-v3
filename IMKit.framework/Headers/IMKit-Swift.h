@@ -319,6 +319,7 @@ SWIFT_CLASS("_TtC5IMKit31IMAudioMessageSectionController")
 
 SWIFT_CLASS("_TtC5IMKit12IMAvatarView")
 @interface IMAvatarView : UIView
+@property (nonatomic, strong) UIColor * _Nullable backgroundColor;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -722,6 +723,7 @@ SWIFT_CLASS("_TtC5IMKit24IMMessagesViewController")
 - (void)viewDidLayoutSubviews;
 @property (nonatomic, readonly) BOOL canBecomeFirstResponder;
 - (void)infoButtonTapped;
+- (void)titleViewTapped;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end

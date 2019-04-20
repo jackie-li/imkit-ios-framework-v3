@@ -746,7 +746,7 @@ SWIFT_CLASS("_TtC5IMKit24IMMessagesViewController")
 @class IMRoom;
 
 @interface IMMessagesViewController (SWIFT_EXTENSION(IMKit))
-- (void)messageDidSelect:(IMMessage * _Nonnull)message;
+- (void)messagesDidSelect:(NSArray<IMMessage *> * _Nonnull)messages;
 - (void)performUpdate:(IMRoom * _Nonnull)room;
 @end
 

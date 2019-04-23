@@ -697,6 +697,7 @@ SWIFT_CLASS("_TtC5IMKit9IMMessage")
 SWIFT_CLASS("_TtC5IMKit47IMMessagesSelectionInputAccessoryViewController")
 @interface IMMessagesSelectionInputAccessoryViewController : UIInputViewController
 - (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
 - (void)viewSafeAreaInsetsDidChange;
 - (void)viewDidLayoutSubviews;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;

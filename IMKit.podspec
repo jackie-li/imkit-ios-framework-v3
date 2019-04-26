@@ -45,15 +45,15 @@ Pod::Spec.new do |s|
 
   s.dependency 'IGListKit', '~> 3.4.0'
   s.dependency 'PromiseKit', '~> 6.8.3'
-  s.dependency 'Socket.IO-Client-Swift', '~> 14.0.0'
+  s.dependency 'Socket.IO-Client-Swift', '~> 15.0.0'
   s.dependency 'Kingfisher', '~> 5.3.0'
   s.dependency 'Alamofire', '~> 4.8.1'
-  s.dependency 'RealmSwift', '~> 3.13.1'
+  s.dependency 'RealmSwift', '~> 3.14.1'
   s.dependency 'SwiftLinkPreview', '~> 3.0.0'
   s.dependency 'ActiveLabel', '~> 1.0.1'
   s.dependency 'SnapKit', '~> 4.2.0'
   s.dependency 'Hero', '~> 1.4.0'
-  s.dependency 'SwiftyJSON', '~> 4.2.0'
+  s.dependency 'SwiftyJSON', '~> 4.3.0'
   s.dependency 'CryptoSwift', '~> 0.15.0'
   s.dependency 'Moya', '~> 12.0.1'
 end

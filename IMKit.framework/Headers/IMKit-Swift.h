@@ -519,11 +519,11 @@ SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 @end
 
 
-
-
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
+
+
 
 
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDataSource>
@@ -719,6 +719,7 @@ SWIFT_CLASS("_TtC5IMKit26UIObservableViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIEvent;
 
 SWIFT_CLASS("_TtC5IMKit24IMMessagesViewController")
 @interface IMMessagesViewController : UIObservableViewController
@@ -726,6 +727,7 @@ SWIFT_CLASS("_TtC5IMKit24IMMessagesViewController")
 @property (nonatomic, readonly, strong) UIInputViewController * _Nullable inputViewController;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent * _Nullable)event;
 - (void)viewDidLayoutSubviews;
 @property (nonatomic, readonly) BOOL canBecomeFirstResponder;
 - (void)infoButtonTapped;
@@ -1699,11 +1701,11 @@ SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 @end
 
 
-
-
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
+
+
 
 
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDataSource>
@@ -1899,6 +1901,7 @@ SWIFT_CLASS("_TtC5IMKit26UIObservableViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIEvent;
 
 SWIFT_CLASS("_TtC5IMKit24IMMessagesViewController")
 @interface IMMessagesViewController : UIObservableViewController
@@ -1906,6 +1909,7 @@ SWIFT_CLASS("_TtC5IMKit24IMMessagesViewController")
 @property (nonatomic, readonly, strong) UIInputViewController * _Nullable inputViewController;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent * _Nullable)event;
 - (void)viewDidLayoutSubviews;
 @property (nonatomic, readonly) BOOL canBecomeFirstResponder;
 - (void)infoButtonTapped;

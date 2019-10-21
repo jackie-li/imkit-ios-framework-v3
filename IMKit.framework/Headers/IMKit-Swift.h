@@ -205,9 +205,24 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+@class NSCoder;
+@class UICollectionViewLayoutAttributes;
+
+/// A <code>UICollectionViewFlowLayout</code> subclass that gives you control
+/// over the horizontal and vertical alignment of the cells.
+/// You can use it to align the cells like words in a left- or right-aligned text
+/// and you can specify how the cells are vertically aligned in their row.
+SWIFT_CLASS("_TtC5IMKit31AlignedCollectionViewFlowLayout")
+@interface AlignedCollectionViewFlowLayout : UICollectionViewFlowLayout
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (UICollectionViewLayoutAttributes * _Nullable)layoutAttributesForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (NSArray<UICollectionViewLayoutAttributes *> * _Nullable)layoutAttributesForElementsInRect:(CGRect)rect SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class UIImage;
 @class CIColor;
-@class NSCoder;
 @class UITraitCollection;
 
 SWIFT_CLASS("_TtC5IMKit5Color")
@@ -537,11 +552,11 @@ SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 @end
 
 
+
+
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
-
-
 
 
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDataSource>
@@ -735,16 +750,16 @@ SWIFT_CLASS("_TtC5IMKit36IMMessageActionPopoverViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UITableView;
-
-@interface IMMessageActionPopoverViewController (SWIFT_EXTENSION(IMKit)) <UITableViewDelegate>
-- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-@end
-
 @class UIPresentationController;
 
 @interface IMMessageActionPopoverViewController (SWIFT_EXTENSION(IMKit)) <UIPopoverPresentationControllerDelegate>
 - (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController * _Nonnull)controller SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class UITableView;
+
+@interface IMMessageActionPopoverViewController (SWIFT_EXTENSION(IMKit)) <UITableViewDelegate>
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @end
 
 @class UITableViewCell;
@@ -879,6 +894,26 @@ SWIFT_CLASS("_TtC5IMKit24IMRoomCollectionViewCell")
 @end
 
 
+SWIFT_CLASS("_TtC5IMKit11IMRoomGroup")
+@interface IMRoomGroup : RealmSwiftObject
+@property (nonatomic, copy) NSString * _Nonnull id;
+@property (nonatomic, copy) NSString * _Nonnull name;
+@property (nonatomic) NSInteger order;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
++ (NSString * _Nullable)primaryKey SWIFT_WARN_UNUSED_RESULT;
++ (NSArray<NSString *> * _Nonnull)indexedProperties SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit29IMRoomGroupCollectionViewCell")
+@interface IMRoomGroupCollectionViewCell : UICollectionViewCell
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC5IMKit20IMRoomViewController")
 @interface IMRoomViewController : UIObservableViewController
 - (void)viewDidLoad;
@@ -913,13 +948,29 @@ SWIFT_CLASS("_TtC5IMKit21IMRoomsViewController")
 @end
 
 
+@interface IMRoomsViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDelegateFlowLayout>
+- (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 @interface IMRoomsViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDataSourcePrefetching>
 - (void)collectionView:(UICollectionView * _Nonnull)collectionView prefetchItemsAtIndexPaths:(NSArray<NSIndexPath *> * _Nonnull)indexPaths;
 @end
 
+@protocol UIDragSession;
+@class UIDragItem;
 
-@interface IMRoomsViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDelegateFlowLayout>
-- (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@interface IMRoomsViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDragDelegate>
+- (NSArray<UIDragItem *> * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView itemsForBeginningDragSession:(id <UIDragSession> _Nonnull)session atIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=11.0);
+@end
+
+@protocol UICollectionViewDropCoordinator;
+@protocol UIDropSession;
+@class UICollectionViewDropProposal;
+
+@interface IMRoomsViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDropDelegate>
+- (void)collectionView:(UICollectionView * _Nonnull)collectionView performDropWithCoordinator:(id <UICollectionViewDropCoordinator> _Nonnull)coordinator SWIFT_AVAILABILITY(ios,introduced=11.0);
+- (UICollectionViewDropProposal * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView dropSessionDidUpdate:(id <UIDropSession> _Nonnull)session withDestinationIndexPath:(NSIndexPath * _Nullable)destinationIndexPath SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=11.0);
 @end
 
 
@@ -1250,6 +1301,8 @@ SWIFT_CLASS("_TtC5IMKit31IMVideoMessageSectionController")
 - (void)didSelectItemAtIndex:(NSInteger)index;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
+
 
 
 
@@ -1473,9 +1526,24 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+@class NSCoder;
+@class UICollectionViewLayoutAttributes;
+
+/// A <code>UICollectionViewFlowLayout</code> subclass that gives you control
+/// over the horizontal and vertical alignment of the cells.
+/// You can use it to align the cells like words in a left- or right-aligned text
+/// and you can specify how the cells are vertically aligned in their row.
+SWIFT_CLASS("_TtC5IMKit31AlignedCollectionViewFlowLayout")
+@interface AlignedCollectionViewFlowLayout : UICollectionViewFlowLayout
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (UICollectionViewLayoutAttributes * _Nullable)layoutAttributesForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (NSArray<UICollectionViewLayoutAttributes *> * _Nullable)layoutAttributesForElementsInRect:(CGRect)rect SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class UIImage;
 @class CIColor;
-@class NSCoder;
 @class UITraitCollection;
 
 SWIFT_CLASS("_TtC5IMKit5Color")
@@ -1805,11 +1873,11 @@ SWIFT_CLASS("_TtC5IMKit27IMImageViewerViewController")
 @end
 
 
+
+
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
-
-
 
 
 @interface IMImageViewerViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDataSource>
@@ -2003,16 +2071,16 @@ SWIFT_CLASS("_TtC5IMKit36IMMessageActionPopoverViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UITableView;
-
-@interface IMMessageActionPopoverViewController (SWIFT_EXTENSION(IMKit)) <UITableViewDelegate>
-- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-@end
-
 @class UIPresentationController;
 
 @interface IMMessageActionPopoverViewController (SWIFT_EXTENSION(IMKit)) <UIPopoverPresentationControllerDelegate>
 - (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController * _Nonnull)controller SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class UITableView;
+
+@interface IMMessageActionPopoverViewController (SWIFT_EXTENSION(IMKit)) <UITableViewDelegate>
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @end
 
 @class UITableViewCell;
@@ -2147,6 +2215,26 @@ SWIFT_CLASS("_TtC5IMKit24IMRoomCollectionViewCell")
 @end
 
 
+SWIFT_CLASS("_TtC5IMKit11IMRoomGroup")
+@interface IMRoomGroup : RealmSwiftObject
+@property (nonatomic, copy) NSString * _Nonnull id;
+@property (nonatomic, copy) NSString * _Nonnull name;
+@property (nonatomic) NSInteger order;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
++ (NSString * _Nullable)primaryKey SWIFT_WARN_UNUSED_RESULT;
++ (NSArray<NSString *> * _Nonnull)indexedProperties SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC5IMKit29IMRoomGroupCollectionViewCell")
+@interface IMRoomGroupCollectionViewCell : UICollectionViewCell
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC5IMKit20IMRoomViewController")
 @interface IMRoomViewController : UIObservableViewController
 - (void)viewDidLoad;
@@ -2181,13 +2269,29 @@ SWIFT_CLASS("_TtC5IMKit21IMRoomsViewController")
 @end
 
 
+@interface IMRoomsViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDelegateFlowLayout>
+- (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 @interface IMRoomsViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDataSourcePrefetching>
 - (void)collectionView:(UICollectionView * _Nonnull)collectionView prefetchItemsAtIndexPaths:(NSArray<NSIndexPath *> * _Nonnull)indexPaths;
 @end
 
+@protocol UIDragSession;
+@class UIDragItem;
 
-@interface IMRoomsViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDelegateFlowLayout>
-- (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@interface IMRoomsViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDragDelegate>
+- (NSArray<UIDragItem *> * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView itemsForBeginningDragSession:(id <UIDragSession> _Nonnull)session atIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=11.0);
+@end
+
+@protocol UICollectionViewDropCoordinator;
+@protocol UIDropSession;
+@class UICollectionViewDropProposal;
+
+@interface IMRoomsViewController (SWIFT_EXTENSION(IMKit)) <UICollectionViewDropDelegate>
+- (void)collectionView:(UICollectionView * _Nonnull)collectionView performDropWithCoordinator:(id <UICollectionViewDropCoordinator> _Nonnull)coordinator SWIFT_AVAILABILITY(ios,introduced=11.0);
+- (UICollectionViewDropProposal * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView dropSessionDidUpdate:(id <UIDropSession> _Nonnull)session withDestinationIndexPath:(NSIndexPath * _Nullable)destinationIndexPath SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=11.0);
 @end
 
 
@@ -2518,6 +2622,8 @@ SWIFT_CLASS("_TtC5IMKit31IMVideoMessageSectionController")
 - (void)didSelectItemAtIndex:(NSInteger)index;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
+
 
 
 

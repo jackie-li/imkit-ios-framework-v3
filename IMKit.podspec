@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IMKit'
-  s.version          = '0.165.0'
+  s.version          = '0.166.0'
   s.summary          = 'IMKit Framework'
 
 # This description is used to generate tags and improve search results.
@@ -44,17 +44,17 @@ Pod::Spec.new do |s|
   s.frameworks = 'UIKit'
 
   s.dependency 'IGListKit', '~> 3.4.0'
-  s.dependency 'PromiseKit', '~> 6.11.0'
-  s.dependency 'Socket.IO-Client-Swift', '~> 15.1.0'
-  s.dependency 'Kingfisher', '~> 5.8.3'
-  s.dependency 'Alamofire', '~> 4.9.0'
-  s.dependency 'RealmSwift', '~> 3.19.0'
+  s.dependency 'PromiseKit', '~> 6.12.0'
+  s.dependency 'Socket.IO-Client-Swift', '~> 15.2.0'
+  s.dependency 'Kingfisher', '~> 5.9.0'
+  s.dependency 'Alamofire', '~> 4.9.1'
+  s.dependency 'RealmSwift', '~> 4.0.0'
   s.dependency 'SwiftLinkPreview', '~> 3.0.0'
   s.dependency 'ActiveLabel', '~> 1.1.0'
   s.dependency 'SnapKit', '~> 5.0.1'
-  s.dependency 'Hero', '~> 1.4.0'
+  s.dependency 'Hero', '~> 1.5.0'
   s.dependency 'SwiftyJSON', '~> 5.0.0'
-  s.dependency 'CryptoSwift', '~> 1.1.2'
+  s.dependency 'CryptoSwift', '~> 1.1.3'
   s.dependency 'Moya', '~> 13.0.1'
   s.dependency 'DifferenceKit', '~> 1.1.3'
   s.dependency 'SwifterSwift', '~> 5.1.0'

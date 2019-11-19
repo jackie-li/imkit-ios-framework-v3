@@ -419,6 +419,9 @@ SWIFT_CLASS("_TtC5IMKit23IMDateSectionController")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class RLMRealm;
+@class RLMObjectSchema;
+@class RLMSchema;
 
 SWIFT_CLASS("_TtC5IMKit6IMFile")
 @interface IMFile : RealmSwiftObject
@@ -430,6 +433,8 @@ SWIFT_CLASS("_TtC5IMKit6IMFile")
 @property (nonatomic) NSInteger duration;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 @end
 
 
@@ -512,6 +517,8 @@ SWIFT_CLASS("_TtC5IMKit7IMImage")
 @property (nonatomic, copy) NSData * _Nullable thumbnailImageData;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 @end
 
 
@@ -663,6 +670,8 @@ SWIFT_CLASS("_TtC5IMKit13IMLinkPreview")
 @property (nonatomic, readonly, copy) NSString * _Nonnull title;
 @property (nonatomic, readonly, copy) NSString * _Nonnull desc;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 + (NSString * _Nullable)primaryKey SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 - (id <NSObject> _Nonnull)diffIdentifier SWIFT_WARN_UNUSED_RESULT;
@@ -694,6 +703,8 @@ SWIFT_CLASS("_TtC5IMKit10IMLiteUser")
 @property (nonatomic, readonly, copy) NSString * _Nonnull id;
 @property (nonatomic, readonly, copy) NSString * _Nonnull nickname;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 @end
 
 
@@ -703,6 +714,8 @@ SWIFT_CLASS("_TtC5IMKit10IMLocation")
 @property (nonatomic, readonly) double latitude;
 @property (nonatomic, readonly) double longitude;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 @end
 
@@ -748,6 +761,8 @@ SWIFT_CLASS("_TtC5IMKit16IMMemberProperty")
 @property (nonatomic, readonly) NSInteger badgeNumber;
 @property (nonatomic, readonly, copy) NSString * _Nonnull lastReadMessageID;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 @end
 
 @class IMSystemEvent;
@@ -769,6 +784,8 @@ SWIFT_CLASS("_TtC5IMKit9IMMessage")
 @property (nonatomic, readonly, strong) IMResponseObject * _Nullable responseObject;
 @property (nonatomic, readonly, copy) NSString * _Nonnull messageType;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 + (NSString * _Nullable)primaryKey SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<NSString *> * _Nonnull)indexedProperties SWIFT_WARN_UNUSED_RESULT;
@@ -883,6 +900,8 @@ SWIFT_CLASS("_TtC5IMKit16IMResponseObject")
 @property (nonatomic, readonly, copy) NSString * _Nullable stickerID;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 @end
 
 
@@ -912,6 +931,8 @@ SWIFT_CLASS("_TtC5IMKit6IMRoom")
 @property (nonatomic, readonly) NSInteger numberOfUnreadMessages;
 @property (nonatomic, readonly) BOOL isMuted;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 + (NSString * _Nullable)primaryKey SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<NSString *> * _Nonnull)indexedProperties SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
@@ -932,6 +953,8 @@ SWIFT_CLASS("_TtC5IMKit11IMRoomGroup")
 @property (nonatomic, copy) NSString * _Nonnull name;
 @property (nonatomic) NSInteger order;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 + (NSString * _Nullable)primaryKey SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<NSString *> * _Nonnull)indexedProperties SWIFT_WARN_UNUSED_RESULT;
 @end
@@ -1118,6 +1141,8 @@ SWIFT_CLASS("_TtC5IMKit13IMSystemEvent")
 @interface IMSystemEvent : RealmSwiftObject
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 @end
 
 
@@ -1255,6 +1280,8 @@ SWIFT_CLASS("_TtC5IMKit6IMUser")
 @property (nonatomic, readonly, copy) NSString * _Nonnull desc;
 @property (nonatomic, readonly, copy) NSDate * _Nonnull lastLoginTime;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 + (NSString * _Nullable)primaryKey SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 - (id <NSObject> _Nonnull)diffIdentifier SWIFT_WARN_UNUSED_RESULT;
@@ -1768,6 +1795,9 @@ SWIFT_CLASS("_TtC5IMKit23IMDateSectionController")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class RLMRealm;
+@class RLMObjectSchema;
+@class RLMSchema;
 
 SWIFT_CLASS("_TtC5IMKit6IMFile")
 @interface IMFile : RealmSwiftObject
@@ -1779,6 +1809,8 @@ SWIFT_CLASS("_TtC5IMKit6IMFile")
 @property (nonatomic) NSInteger duration;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 @end
 
 
@@ -1861,6 +1893,8 @@ SWIFT_CLASS("_TtC5IMKit7IMImage")
 @property (nonatomic, copy) NSData * _Nullable thumbnailImageData;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 @end
 
 
@@ -2012,6 +2046,8 @@ SWIFT_CLASS("_TtC5IMKit13IMLinkPreview")
 @property (nonatomic, readonly, copy) NSString * _Nonnull title;
 @property (nonatomic, readonly, copy) NSString * _Nonnull desc;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 + (NSString * _Nullable)primaryKey SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 - (id <NSObject> _Nonnull)diffIdentifier SWIFT_WARN_UNUSED_RESULT;
@@ -2043,6 +2079,8 @@ SWIFT_CLASS("_TtC5IMKit10IMLiteUser")
 @property (nonatomic, readonly, copy) NSString * _Nonnull id;
 @property (nonatomic, readonly, copy) NSString * _Nonnull nickname;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 @end
 
 
@@ -2052,6 +2090,8 @@ SWIFT_CLASS("_TtC5IMKit10IMLocation")
 @property (nonatomic, readonly) double latitude;
 @property (nonatomic, readonly) double longitude;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 @end
 
@@ -2097,6 +2137,8 @@ SWIFT_CLASS("_TtC5IMKit16IMMemberProperty")
 @property (nonatomic, readonly) NSInteger badgeNumber;
 @property (nonatomic, readonly, copy) NSString * _Nonnull lastReadMessageID;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 @end
 
 @class IMSystemEvent;
@@ -2118,6 +2160,8 @@ SWIFT_CLASS("_TtC5IMKit9IMMessage")
 @property (nonatomic, readonly, strong) IMResponseObject * _Nullable responseObject;
 @property (nonatomic, readonly, copy) NSString * _Nonnull messageType;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 + (NSString * _Nullable)primaryKey SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<NSString *> * _Nonnull)indexedProperties SWIFT_WARN_UNUSED_RESULT;
@@ -2232,6 +2276,8 @@ SWIFT_CLASS("_TtC5IMKit16IMResponseObject")
 @property (nonatomic, readonly, copy) NSString * _Nullable stickerID;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 @end
 
 
@@ -2261,6 +2307,8 @@ SWIFT_CLASS("_TtC5IMKit6IMRoom")
 @property (nonatomic, readonly) NSInteger numberOfUnreadMessages;
 @property (nonatomic, readonly) BOOL isMuted;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 + (NSString * _Nullable)primaryKey SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<NSString *> * _Nonnull)indexedProperties SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
@@ -2281,6 +2329,8 @@ SWIFT_CLASS("_TtC5IMKit11IMRoomGroup")
 @property (nonatomic, copy) NSString * _Nonnull name;
 @property (nonatomic) NSInteger order;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 + (NSString * _Nullable)primaryKey SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<NSString *> * _Nonnull)indexedProperties SWIFT_WARN_UNUSED_RESULT;
 @end
@@ -2467,6 +2517,8 @@ SWIFT_CLASS("_TtC5IMKit13IMSystemEvent")
 @interface IMSystemEvent : RealmSwiftObject
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 @end
 
 
@@ -2604,6 +2656,8 @@ SWIFT_CLASS("_TtC5IMKit6IMUser")
 @property (nonatomic, readonly, copy) NSString * _Nonnull desc;
 @property (nonatomic, readonly, copy) NSDate * _Nonnull lastLoginTime;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema SWIFT_UNAVAILABLE;
 + (NSString * _Nullable)primaryKey SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<NSString *> * _Nonnull)ignoredProperties SWIFT_WARN_UNUSED_RESULT;
 - (id <NSObject> _Nonnull)diffIdentifier SWIFT_WARN_UNUSED_RESULT;

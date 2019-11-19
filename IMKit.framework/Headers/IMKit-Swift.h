@@ -617,6 +617,15 @@ SWIFT_CLASS("_TtC5IMKit30IMInputAccessoryViewController")
 - (void)viewDidLoad;
 - (void)viewSafeAreaInsetsDidChange;
 - (void)viewDidLayoutSubviews;
+- (void)imageButtonTapped;
+- (void)cameraButtonTapped;
+- (void)sendButtonTapped;
+- (void)stickerButtonTapped;
+- (void)audioButtonTapped;
+- (void)fileButtonTapped;
+- (void)mapButtonTapped;
+- (void)addButtonTapped;
+- (void)returnButtonTapped;
 - (void)foldTextBar;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
@@ -950,13 +959,13 @@ SWIFT_CLASS("_TtC5IMKit20IMRoomViewController")
 @end
 
 
-
-
 @interface IMRoomViewController (SWIFT_EXTENSION(IMKit)) <IGListAdapterDataSource>
 - (NSArray<id <IGListDiffable>> * _Nonnull)objectsForListAdapter:(IGListAdapter * _Nonnull)listAdapter SWIFT_WARN_UNUSED_RESULT;
 - (IGListSectionController * _Nonnull)listAdapter:(IGListAdapter * _Nonnull)listAdapter sectionControllerForObject:(id _Nonnull)object SWIFT_WARN_UNUSED_RESULT;
 - (UIView * _Nullable)emptyViewForListAdapter:(IGListAdapter * _Nonnull)listAdapter SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 SWIFT_CLASS("_TtC5IMKit21IMRoomsViewController")
@@ -1957,6 +1966,15 @@ SWIFT_CLASS("_TtC5IMKit30IMInputAccessoryViewController")
 - (void)viewDidLoad;
 - (void)viewSafeAreaInsetsDidChange;
 - (void)viewDidLayoutSubviews;
+- (void)imageButtonTapped;
+- (void)cameraButtonTapped;
+- (void)sendButtonTapped;
+- (void)stickerButtonTapped;
+- (void)audioButtonTapped;
+- (void)fileButtonTapped;
+- (void)mapButtonTapped;
+- (void)addButtonTapped;
+- (void)returnButtonTapped;
 - (void)foldTextBar;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
@@ -2290,13 +2308,13 @@ SWIFT_CLASS("_TtC5IMKit20IMRoomViewController")
 @end
 
 
-
-
 @interface IMRoomViewController (SWIFT_EXTENSION(IMKit)) <IGListAdapterDataSource>
 - (NSArray<id <IGListDiffable>> * _Nonnull)objectsForListAdapter:(IGListAdapter * _Nonnull)listAdapter SWIFT_WARN_UNUSED_RESULT;
 - (IGListSectionController * _Nonnull)listAdapter:(IGListAdapter * _Nonnull)listAdapter sectionControllerForObject:(id _Nonnull)object SWIFT_WARN_UNUSED_RESULT;
 - (UIView * _Nullable)emptyViewForListAdapter:(IGListAdapter * _Nonnull)listAdapter SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 SWIFT_CLASS("_TtC5IMKit21IMRoomsViewController")

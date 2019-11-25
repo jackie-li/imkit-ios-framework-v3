@@ -46,7 +46,7 @@ Pod::Spec.new do |s|
   s.dependency 'IGListKit', '~> 3.4.0'
   s.dependency 'PromiseKit', '~> 6.12.0'
   s.dependency 'Socket.IO-Client-Swift', '~> 15.2.0'
-  s.dependency 'Kingfisher', '~> 5.9.0'
+  s.dependency 'Kingfisher', '~> 5.10.1'
   s.dependency 'Alamofire', '~> 4.9.1'
   s.dependency 'RealmSwift', '~> 3.21.0'
   s.dependency 'SwiftLinkPreview', '~> 3.0.0'

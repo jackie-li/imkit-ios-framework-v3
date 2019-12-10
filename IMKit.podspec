@@ -56,5 +56,5 @@ Pod::Spec.new do |s|
   s.dependency 'SwiftyJSON', '~> 5.0.0'
   s.dependency 'CryptoSwift', '~> 1.1.3'
   s.dependency 'Moya', '~> 13.0.1'
-  s.dependency 'DifferenceKit', '~> 1.1.3'
+  s.dependency 'DifferenceKit', '1.1.3'
 end
